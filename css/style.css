@@ -1,0 +1,357 @@
+@font-face {
+  font-family: "Proxima Nova Rg";
+  src: url("../fonts/ProximaNova-Regular.woff2") format("woff2"), url("../fonts/ProximaNova-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Lt";
+  src: url("../fonts/ProximaNova-SemiboldIt.woff2") format("woff2"), url("../fonts/ProximaNova-SemiboldIt.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Lt";
+  src: url("../fonts/ProximaNova-Semibold.woff2") format("woff2"), url("../fonts/ProximaNova-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Th";
+  src: url("../fonts/ProximaNova-ExtrabldIt.woff2") format("woff2"), url("../fonts/ProximaNova-ExtrabldIt.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Bl";
+  src: url("../fonts/ProximaNova-BlackIt.woff2") format("woff2"), url("../fonts/ProximaNova-BlackIt.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Bl";
+  src: url("../fonts/ProximaNova-Black.woff2") format("woff2"), url("../fonts/ProximaNova-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Rg";
+  src: url("../fonts/ProximaNova-BoldIt.woff2") format("woff2"), url("../fonts/ProximaNova-BoldIt.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Rg";
+  src: url("../fonts/ProximaNova-Bold.woff2") format("woff2"), url("../fonts/ProximaNova-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Th";
+  src: url("../fonts/ProximaNova-Extrabld.woff2") format("woff2"), url("../fonts/ProximaNova-Extrabld.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Lt";
+  src: url("../fonts/ProximaNova-LightIt.woff2") format("woff2"), url("../fonts/ProximaNova-LightIt.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Lt";
+  src: url("../fonts/ProximaNova-Light.woff2") format("woff2"), url("../fonts/ProximaNova-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Rg";
+  src: url("../fonts/ProximaNova-RegularIt.woff2") format("woff2"), url("../fonts/ProximaNova-RegularIt.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Th";
+  src: url("../fonts/ProximaNova-ThinIt.woff2") format("woff2"), url("../fonts/ProximaNova-ThinIt.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova Th";
+  src: url("../fonts/ProximaNova-Thin.woff2") format("woff2"), url("../fonts/ProximaNova-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Proxima Nova Rg";
+}
+
+:root {
+  --color-white: #fff;
+  --color-black: #1f1e1f;
+  --color-red: #c91b1b;
+}
+
+ul {
+  margin-bottom: 0rem;
+  padding-left: 0rem;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+}
+
+header .navbar-nav .nav-item .nav-link {
+  color: var(--color-black);
+  font-weight: 500;
+}
+
+.banner .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.banner .swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: var(--color-white);
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  z-index: 99;
+}
+
+.banner .swiper .swiper-slide::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.171);
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.banner .swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.banner .swiper .swiper-slide .content {
+  max-width: 33rem;
+  margin-top: 15rem;
+}
+
+.banner .swiper .swiper-slide .content h1 {
+  color: var(--color-red);
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+.banner .swiper .swiper-slide .content .text {
+  position: relative;
+  margin-top: 6rem;
+  padding-left: 2rem;
+}
+
+.banner .swiper .swiper-slide .content .text::before {
+  content: "";
+  height: 2.8rem;
+  width: 1.5rem;
+  background-color: var(--color-red);
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: 1.8rem;
+}
+
+.banner .swiper .swiper-slide .content .text p {
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: "Proxima Nova Th";
+}
+
+.banner .swiper .swiper-slide .content .btn {
+  color: var(--color-white);
+  margin-left: 2rem;
+  border: 1px solid var(--color-white);
+  border-radius: 5px;
+  margin-top: 2rem;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  font-weight: 700;
+}
+
+.banner .swiper .swiper-slide .content .btn:hover {
+  background-color: var(--color-red);
+  border: 1px solid var(--color-red);
+}
+
+.services {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.services .col-lg-5 .info-area {
+  padding: 5rem 0rem 0rem 5rem;
+  display: block;
+  max-width: 30rem;
+}
+
+.services .col-lg-5 .info-area h6 {
+  font-weight: bold;
+  font-size: 1.6rem;
+  max-width: 17rem;
+  margin-bottom: 4rem;
+}
+
+.services .col-lg-5 .info-area h2 {
+  color: var(--color-red);
+  font-weight: bold;
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 4rem;
+}
+
+.services .navigate-area {
+  margin-top: 5rem;
+}
+
+.services .navigate-area .character {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.services .navigate-area .counter-length {
+  font-size: 4rem;
+  font-weight: 800;
+  position: relative;
+}
+
+.services .navigate-area .counter-length::before {
+  content: "";
+  background-color: var(--color-black);
+  height: 2rem;
+  width: 0.2rem;
+  position: absolute;
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+  top: 0.2rem;
+  left: -0.4rem;
+}
+
+.services .swiper-button-next, .services .swiper-button-prev {
+  position: relative !important;
+  top: inherit !important;
+  left: inherit !important;
+  right: inherit !important;
+}
+
+.services .col-lg-7 {
+  background-color: var(--color-red);
+  padding: 12rem 0rem;
+}
+
+.services .col-lg-7 .swiper-container {
+  margin-left: -11rem;
+  margin-right: -8rem;
+}
+
+.services .col-lg-7 .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.services .col-lg-7 .swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  scale: 0.88;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.services .col-lg-7 .swiper .swiper-slide-active {
+  scale: 1;
+}
+
+.services .col-lg-7 .swiper .swiper-slide .card {
+  padding: 0;
+}
+
+.services .col-lg-7 .swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=style.css.map */
