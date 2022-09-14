@@ -1176,6 +1176,9 @@ footer {
         background-color: var(--color-white);
         padding: 1rem 0rem;
         margin-top: 2rem;
+        @media screen and(max-width:1440px) {
+            padding: 0.5em 0rem;
+        }
 
         .col-lg-6 {
             @media screen and(max-width:$lg-breakpoint) {
@@ -1190,6 +1193,10 @@ footer {
             font-weight: 300;
             display: block;
 
+            @media screen and(max-width:1440px) {
+                font-size: 0.7rem;
+            }
+
             @media screen and(max-width:$lg-breakpoint) {
                 margin-bottom: 0.5rem;
             }
@@ -1198,6 +1205,9 @@ footer {
         img {
             filter: invert(1);
             max-width: 2.8rem;
+            @media screen and(max-width:1440px) {
+                max-width: 1.7rem;
+            }
         }
     }
 }

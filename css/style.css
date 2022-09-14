@@ -1103,6 +1103,11 @@ footer .copyright {
   padding: 1rem 0rem;
   margin-top: 2rem;
 }
+@media screen and (max-width: 1440px) {
+  footer .copyright {
+    padding: 0.5em 0rem;
+  }
+}
 @media screen and (max-width: 991px) {
   footer .copyright .col-lg-6 {
     justify-content: center !important;
@@ -1115,6 +1120,11 @@ footer .copyright span {
   font-weight: 300;
   display: block;
 }
+@media screen and (max-width: 1440px) {
+  footer .copyright span {
+    font-size: 0.7rem;
+  }
+}
 @media screen and (max-width: 991px) {
   footer .copyright span {
     margin-bottom: 0.5rem;
@@ -1123,4 +1133,9 @@ footer .copyright span {
 footer .copyright img {
   filter: invert(1);
   max-width: 2.8rem;
+}
+@media screen and (max-width: 1440px) {
+  footer .copyright img {
+    max-width: 1.7rem;
+  }
 }/*# sourceMappingURL=style.css.map */
