@@ -1,3 +1,26 @@
+const menuToggle = document.querySelector("#toggle-btn");
+const navigation = document.querySelector(".nav-menu");
+const headerInner = document.querySelector(".header-inner");
+const listItem = document.querySelectorAll(".list-item");
+menuToggle.onclick = function () {
+  menuToggle.classList.toggle("active");
+  navigation.classList.toggle("active");
+  headerInner.classList.toggle("bg-white");
+
+  if (menuToggle.innerHTML === `<i class="fa-solid fa-xmark"></i>`) {
+    menuToggle.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+  } else {
+    menuToggle.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+  }
+};
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 100) {
+    $(".header").addClass("sticky");
+  } else {
+    $(".header").removeClass("sticky");
+  }
+});
+
 var swiperBanner = new Swiper(".mySwiperBanner", {});
 
 const fraction = document.getElementById("fraction");
@@ -20,9 +43,17 @@ var swiperServices = new Swiper(".mySwiperServices", {
     },
     768: {
       slidesPerView: 2,
-      spaceBetween: 10,
+      spaceBetween: 20,
     },
     1024: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    1200: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    1366: {
       slidesPerView: 3,
       spaceBetween: 10,
     },
@@ -47,7 +78,6 @@ console.log("iki", slideCount2);
 fraction2.innerHTML = `<span class="start-count">1</span> <span class="counter-length">${slideCount2}</span>`;
 
 var swiperBlog = new Swiper(".mySwiperBlog", {
-  slidesPerView: 3,
   spaceBetween: 30,
   navigation: {
     nextEl: ".swiper-button-next",
@@ -59,7 +89,7 @@ var swiperBlog = new Swiper(".mySwiperBlog", {
       spaceBetween: 20,
     },
     768: {
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 40,
     },
     1024: {

@@ -194,6 +194,19 @@
     }
 }
 
+@mixin border {
+    &::before {
+        content: "";
+        height: 2.2rem;
+        width: 1rem;
+        background-color: var(--color-red);
+        position: absolute;
+        display: block;
+        left: 0;
+        top: -1.2rem;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -213,6 +226,13 @@ body {
     --text-color: #3d3c3d;
 }
 
+//responsive breakpoints
+$sm-breakpoint: 600px; //Small
+$md-breakpoint: 768px; //Medium
+$lg-breakpoint: 991px; //Large
+$xl-breakpoint: 1200px; //Extra large
+$xxl-breakpoint: 1400px; //Extra extra large
+
 ul {
     margin-bottom: 0rem;
     padding-left: 0rem;
@@ -228,18 +248,240 @@ a {
 header {
     position: absolute;
     width: 100%;
-    z-index: 999;
-    .navbar-nav {
-        .nav-item {
-            .nav-link {
-                color: var(--color-black);
+    z-index: 9999999;
+    padding: 5rem;
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fffffffa;
+        z-index: 999999;
+        transition: 1s all;
+        padding: 0.5rem 5rem;
+        .navbar-brand {
+            img {
+                max-width: 7rem !important;
+               
+            }
+        }
+    }
+    .header-inner {
+        .container-fluid {
+            position: relative;
+        }
+
+        .navbar-brand {
+            img {
+                max-width: 17rem;
+                object-fit: cover;
+                transition: 0.3s all;
+
+                @media screen and(max-width:1440px) {
+                    max-width: 15rem;
+                }
+                @media screen and(max-width:$xl-breakpoint) {
+                    max-width: 7rem;
+                }
+            }
+        }
+
+        nav {
+            #toggle-btn {
+                display: none;
+                background-color: transparent;
+                border: none;
+
+                @media screen and(max-width:$xl-breakpoint) {
+                    display: block !important;
+                }
+
+                i {
+                    font-size: 1.5rem;
+                    color: var(--color-yellow);
+                }
+            }
+
+            .nav-menu {
+                @media screen and(max-width:$xl-breakpoint) {
+                    right: -130px;
+                    padding: 2rem 1rem;
+                    transition: 0.3s all;
+                    width: 0%;
+                    top: 6rem;
+                    bottom: 0;
+                    background-color: var(--color-white);
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                    z-index: 9999;
+                    position: fixed;
+                }
+
+                &.active {
+                    right: 0;
+                    width: 100%;
+                }
+
+                .navigation {
+                    margin-left: 12rem;
+                    @media screen and(max-width:1440px) {
+                        margin-left: 3rem;
+                    }
+                    @media screen and(max-width:1366px) {
+                        margin-left: 1rem;
+                    }
+                    @media screen and(max-width:$xl-breakpoint) {
+                        margin-left: 0rem !important;
+                        flex-direction: column;
+                        align-items: flex-start !important;
+                    }
+
+                    .nav-item {
+                        @media screen and(min-width:$xl-breakpoint) {
+                            height: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                        }
+                        @media screen and(max-width:$xl-breakpoint) {
+                            flex-direction: column !important;
+                        }
+
+                        &:hover{
+                            @media screen and (min-width:$lg-breakpoint) {
+                                .dropdown-menu{
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        .nav-link {
+                            font-weight: 800;
+                            font-size: 1.3rem;
+                            color: var(--color-black);
+                            cursor: pointer;
+                            display: inline-block;
+                            position: relative;
+                            padding: 1rem 1.3rem;
+                            transition: 0.3s all;
+                            &.active {
+                                color: var(--color-red);
+                            }
+                            &:hover {
+                                color: var(--color-red);
+                            }
+                            @media screen and(max-width:1440px) {
+                                font-size: 1.2rem;
+                                padding: 1rem 0.7rem;
+                            }
+
+                            @media screen and(min-width:1366px) and (max-width: 1400px) {
+                                font-size: 1.1rem;
+                            }
+                            @media screen and(max-width:$lg-breakpoint) {
+                                padding: 0.3rem 0.7rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .language-area {
+            @media screen and(max-width:$xl-breakpoint) {
+                width: 100%;
+                margin-top: 4rem;
+                position: relative;
+                text-align: center;
+                &:before {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    background-color: var(--color-brown);
+                    position: absolute;
+                    margin-bottom: 1rem;
+                    top: -1rem;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            .dropdown-button {
+                background-color: transparent;
+                border: none;
+                color: var(--color-brown);
                 font-weight: 500;
+                font-size: 1.3rem;
+                @media screen and(max-width:1440px) {
+                    font-size: 1.2rem;
+                }
+                @media screen and(max-width:$xl-breakpoint) {
+                    padding-left: 0.5rem;
+                }
+            }
+            [type="button"],
+            [type="reset"],
+            [type="submit"],
+            button {
+                -webkit-appearance: inherit;
+            }
+            .dropdown-menu {
+                min-width: 4rem;
+                @media screen and(max-width:$xl-breakpoint) {
+                    border: none;
+                    .dropdown-item {
+                        padding-left: 0.5rem !important;
+                    }
+                }
+            }
+            .dropdown-item {
+                color: var(--color-brown);
+                font-weight: 500;
+                &:hover {
+                    background-color: var(--color-yellow);
+                    color: var(--color-white);
+                }
+                &:active {
+                    background-color: var(--color-yellow);
+                }
+            }
+        }
+        .social-media {
+            margin-top: 2rem;
+            padding-left: 0.7rem;
+            @media screen and(max-width:$lg-breakpoint) {
+                justify-content: center !important;
+            }
+            span {
+                color: var(--color-brown);
+                font-size: 1rem;
+                font-weight: 500;
+            }
+            ul {
+                margin-top: 0.7rem;
+                li {
+                    margin-right: 1rem;
+                    a {
+                        transition: 0.3s all;
+                        color: var(--color-brown);
+                        &:hover {
+                            color: var(--color-yellow);
+                        }
+                        i {
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
             }
         }
     }
 }
 
 .banner {
+    position: relative;
+
     .swiper {
         width: 100%;
         height: 100%;
@@ -263,17 +505,28 @@ header {
             align-items: center;
             position: relative;
             z-index: 99;
+            min-height: 100vh;
+            width: 100%;
+            padding: 2rem 0rem;
+            @media screen and(max-width:$lg-breakpoint) {
+                min-height: 50vh;
+                padding: 4rem 0rem;
+                background-position: left !important;
+            }
             &::before {
                 content: "";
                 height: 100%;
                 width: 100%;
                 position: absolute;
-                background-color: rgba(0, 0, 0, 0.171);
+                background-color: rgba(0, 0, 0, 0.041);
                 z-index: -1;
                 left: 0;
                 right: 0;
                 top: 0;
                 bottom: 0;
+                @media screen and(max-width:$lg-breakpoint) {
+                    background-color: rgba(0, 0, 0, 0.26);
+                }
             }
             img {
                 display: block;
@@ -284,17 +537,25 @@ header {
             .content {
                 max-width: 33rem;
                 margin-top: 15rem;
-
+                @media screen and(max-width:$lg-breakpoint) {
+                    max-width: 17rem;
+                    margin-top: 7rem;
+                }
                 h1 {
                     color: var(--color-red);
                     font-weight: 700;
                     font-size: 4rem;
+                    @media screen and(max-width:$lg-breakpoint) {
+                        font-size: 2rem;
+                    }
                 }
                 .text {
                     position: relative;
                     margin-top: 6rem;
                     padding-left: 2rem;
-
+                    @media screen and(max-width:$lg-breakpoint) {
+                        margin-top: 3rem;
+                    }
                     &::before {
                         content: "";
                         height: 2.8rem;
@@ -303,7 +564,7 @@ header {
                         position: absolute;
                         display: block;
                         left: 0;
-                        bottom: 1.8rem;
+                        top: -1.5rem;
                     }
                     p {
                         color: var(--color-white);
@@ -334,17 +595,36 @@ header {
     position: relative;
     overflow: hidden;
     min-height: 100vh;
+
     .col-lg-5 {
         .info-area {
-            padding: 5rem 0rem 0rem 5rem;
-            margin-top: 2rem;
-            display: block;
-            max-width: 30rem;
+            @media screen and(min-width:$xl-breakpoint) {
+                padding: 5rem 0rem 0rem 5rem;
+                margin-top: 10rem;
+                display: block;
+                max-width: 30rem;
+            }
+            @media screen and(max-width:1650px) {
+                padding: 5rem 0rem 0rem 1rem;
+                max-width: 20rem;
+            }
+            @media screen and(max-width:$xl-breakpoint) {
+                max-width: 16rem;
+            }
+            @media screen and(max-width:1024px) {
+                max-width: 100%;
+            }
             h6 {
                 font-weight: bold;
                 font-size: 1.6rem;
                 max-width: 17rem;
                 margin-bottom: 4rem;
+                @media screen and(max-width:1440px) {
+                    font-size: 1.3rem;
+                }
+                @media screen and(max-width:1024px) {
+                    margin-bottom: 2rem;
+                }
             }
             h2 {
                 color: var(--color-red);
@@ -352,6 +632,23 @@ header {
                 font-size: 4rem;
                 display: block;
                 margin-bottom: 4rem;
+                @media screen and(max-width:1440px) {
+                    font-size: 3rem;
+                }
+                @media screen and(max-width:$xl-breakpoint) {
+                    font-size: 2.5rem;
+                }
+                @media screen and(max-width:1024px) {
+                    margin-bottom: 2rem;
+                }
+            }
+            p {
+                color: var(--color-black);
+                font-size: 1rem;
+                font-weight: 300;
+                @media screen and(max-width:1440px) {
+                    font-size: 0.9rem;
+                }
             }
         }
     }
@@ -362,9 +659,16 @@ header {
     .col-lg-7 {
         background-color: var(--color-red);
         padding: 9rem 0rem 20rem 0rem;
+        @media screen and(max-width:1024px) {
+            padding: 1rem;
+            background-color: transparent;
+        }
+
         .swiper-container {
-            margin-left: -11rem;
-            margin-right: -10rem;
+            @media screen and(min-width:$xl-breakpoint) {
+                margin-left: -11rem;
+                margin-right: -10rem;
+            }
         }
         .swiper {
             width: 100%;
@@ -373,10 +677,7 @@ header {
             .swiper-slide {
                 text-align: center;
                 font-size: 18px;
-                scale: 0.88;
-                &-active {
-                    scale: 1;
-                }
+
                 /* Center slide text vertically */
                 display: -webkit-box;
                 display: -ms-flexbox;
@@ -391,6 +692,12 @@ header {
                 -webkit-align-items: center;
                 align-items: center;
 
+                @media screen and(min-width:$xl-breakpoint) {
+                    scale: 0.88;
+                    &-active {
+                        scale: 1;
+                    }
+                }
                 .card {
                     padding: 0;
                     border: 0rem;
@@ -399,9 +706,17 @@ header {
                     img {
                         display: block;
                         width: 100%;
-                        height: 17rem;
                         object-fit: cover;
                         border-radius: none;
+                        @media screen and(min-width:$xl-breakpoint) {
+                            height: 17rem;
+                        }
+                        @media screen and(max-width:$xl-breakpoint) {
+                            height: 23rem;
+                        }
+                        @media screen and(max-width:$lg-breakpoint) {
+                            height: 17rem;
+                        }
                     }
                     .card-body {
                         padding: 3rem;
@@ -420,6 +735,9 @@ header {
                         .btn {
                             @include btn;
                         }
+                        @media screen and(max-width:$lg-breakpoint) {
+                            padding: 2rem;
+                        }
                     }
                 }
             }
@@ -431,45 +749,102 @@ header {
     position: relative;
     overflow: hidden;
     display: block;
-    margin-top: -10rem;
     z-index: 999;
-
+    @media screen and(min-width:$lg-breakpoint) {
+        margin-top: -10rem;
+    }
     .container-fluid {
-        padding-left: 0rem !important;
+        @media screen and(min-width:$lg-breakpoint) {
+            padding-left: 0rem !important;
+        }
+    }
+
+    .row {
+        @media screen and(max-width:$lg-breakpoint) {
+            flex-direction: column-reverse;
+        }
     }
     .col-lg-7 {
-        padding-right: 0rem;
-        img {
-            height: 50rem;
-            object-fit: cover;
-            object-position: top;
+        @media screen and(min-width:$lg-breakpoint) {
+            padding-right: 0rem;
+            img {
+                height: 50rem;
+                object-fit: cover;
+                object-position: top;
+                @media screen and(max-width:$lg-breakpoint) {
+                    height: auto;
+                }
+            }
         }
     }
     .col-lg-5 {
-        padding-left: 0rem;
-        margin-top: 6.5rem;
+        @media screen and(min-width:$lg-breakpoint) {
+            padding-left: 0rem;
+            margin-top: 6.5rem;
+        }
         .content {
             background-color: var(--color-white);
             max-width: 46rem;
             height: 40rem;
             padding: 7rem 3rem 3rem 3rem;
+            @media screen and(max-width:1440px) {
+                max-width: 36rem;
+            }
+            @media screen and(max-width:$xl-breakpoint) {
+                max-width: 30rem;
+                padding: 5rem 3rem 3rem 3rem;
+                height: 36rem;
+            }
+            @media screen and(max-width:$lg-breakpoint) {
+                max-width: 100%;
+                height: auto;
+            }
+            @media screen and(max-width:$sm-breakpoint) {
+                padding: 3rem 1rem 1rem 1rem;
+            }
             h6 {
                 color: var(--color-red);
                 font-size: 1.1rem;
-                font-weight: 300;
+                font-weight: 600;
                 margin-bottom: 4rem;
+                @media screen and(max-width:1440px) {
+                    font-size: 1rem;
+                    margin-bottom: 2rem;
+                }
+                @media screen and(max-width:$sm-breakpoint) {
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                }
             }
             h2 {
                 color: var(--color-black);
                 font-weight: 800;
                 font-size: 3.8rem;
                 margin-bottom: 2.5rem;
+                @media screen and(max-width:1440px) {
+                    font-size: 3rem;
+                }
+                @media screen and(max-width:$xl-breakpoint) {
+                    font-size: 2.5rem;
+                }
+                @media screen and(max-width:1024px) {
+                    margin-bottom: 2rem;
+                }
+                @media screen and(max-width:$sm-breakpoint) {
+                    font-size: 1.8rem;
+                }
             }
             p {
                 color: var(--text-color);
                 max-width: 25rem;
                 font-size: 1rem;
                 font-weight: 300;
+                @media screen and(max-width:1440px) {
+                    font-size: 0.9rem;
+                }
+                @media screen and(max-width:$lg-breakpoint) {
+                    max-width: 100%;
+                }
             }
             .btn {
                 color: var(--color-red);
@@ -477,6 +852,10 @@ header {
                 font-size: 3rem;
                 margin-top: 2rem;
                 transition: 0.3s all;
+                @media screen and(max-width:$sm-breakpoint) {
+                    font-size: 2rem;
+                    margin-top: 1rem;
+                }
 
                 &:hover {
                     color: var(--color-black);
@@ -487,7 +866,10 @@ header {
 }
 
 .about {
-    padding: 6rem 0rem 3rem 0rem;
+    padding: 6rem 0rem 0rem 0rem;
+    @media screen and(max-width:$lg-breakpoint) {
+        padding: 3rem 0rem 0rem 0rem;
+    }
     position: relative;
     .box {
         h4 {
@@ -496,11 +878,17 @@ header {
             margin: 2.5rem 0rem 1rem 0rem;
             font-size: 1.6rem;
             text-align: center;
+            @media screen and(max-width:$xl-breakpoint) {
+                font-size: 1.3rem;
+            }
         }
         p {
             color: var(--text-color);
             font-weight: 300;
             font-size: 1rem;
+            @media screen and(max-width:1440px) {
+                font-size: 0.9rem;
+            }
         }
     }
 }
@@ -517,6 +905,9 @@ header {
         color: var(--color-red);
         font-weight: 500;
         margin-bottom: 5rem;
+        @media screen and(max-width:$lg-breakpoint) {
+            margin-bottom: 2rem;
+        }
     }
     .navigate-area {
         @include navigateArea;
@@ -586,12 +977,19 @@ header {
                     font-size: 1.5rem;
                     font-weight: 600;
                     transition: 0.3s all;
+                    @media screen and(max-width:$lg-breakpoint) {
+                        font-size: 1.3rem;
+                    }
                 }
                 p {
                     /* color: var(--color-black); */
                     font-weight: 300;
                     font-size: 1rem;
                     color: var(--text-color);
+
+                    @media screen and(max-width:1440px) {
+                        font-size: 0.9rem;
+                    }
                 }
 
                 .btn {
@@ -608,21 +1006,184 @@ header {
     padding: 5rem 3rem;
     background-image: linear-gradient(90deg, #c91b1b 33%, #1f1e1f 33%);
     margin-bottom: 3rem;
-    h2 {
-        color: var(--color-white);
-        font-weight: 700;
-        display: flex;
-        flex-direction: column;
-        font-size: 5rem;
-        margin-bottom: 1rem;
-        span {
-            font-weight: 100 !important;
-            font-size: 1.5rem;
+    @media screen and(max-width:$lg-breakpoint) {
+        padding: 4rem 1rem;
+        background-image: linear-gradient(90deg, #c91b1b 50%, #1f1e1f 50%);
+    }
+    .box {
+        max-width: 16rem;
+        @media screen and(max-width:$sm-breakpoint) {
+            max-width: 100%;
+        }
+        h2 {
+            color: var(--color-white);
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            span {
+                font-weight: 100 !important;
+                font-size: 1.5rem;
+                @media screen and(max-width:$sm-breakpoint) {
+                    font-size: 1.3rem;
+                }
+            }
+            @media screen and(max-width:$lg-breakpoint) {
+                font-size: 3rem;
+            }
+            @media screen and(max-width:$sm-breakpoint) {
+                font-size: 2rem;
+            }
+        }
+        p {
+            color: var(--color-white);
+            font-weight: 300;
+            font-size: 1rem;
+            @media screen and(max-width:1440px) {
+                font-size: 0.9rem;
+            }
         }
     }
-    p {
+    .expert {
+        @media screen and(max-width:$lg-breakpoint) {
+            justify-content: flex-start !important;
+        }
+    }
+    .customer {
+        @media screen and(max-width:$sm-breakpoint) {
+            justify-content: flex-start !important;
+        }
+    }
+}
+
+footer {
+    background-color: var(--color-black);
+    padding: 5rem 0rem 0rem 0rem;
+
+    .img-wrapper {
+        img {
+            max-width: 10rem;
+        }
+    }
+
+    .social-media {
+        margin: 3rem 0rem 2rem 0rem;
+        ul {
+            li {
+                a {
+                    color: var(--color-red);
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+    .contact {
+        ul {
+            li {
+                a {
+                    color: var(--color-white);
+                    font-weight: 300;
+                    font-size: 1rem;
+                    @media screen and(max-width:1440px) {
+                        font-size: 0.9rem;
+                    }
+                    i {
+                        color: var(--color-red);
+                        font-size: 1.5rem;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    h4 {
         color: var(--color-white);
-        font-weight: 300;
-        font-size: 1rem;
+        font-weight: 500;
+        font-size: 1.2rem;
+        font-family: "Proxima Nova Th";
+    }
+    .address {
+        position: relative;
+        margin-top: 3rem;
+        padding-left: 1.5rem;
+        p {
+            color: var(--color-white);
+            font-size: 1rem;
+            @media screen and(max-width:1440px) {
+                font-size: 0.9rem;
+            }
+        }
+
+        @include border;
+    }
+    .phone-area {
+        margin-top: 3rem;
+        position: relative;
+        padding-left: 1.5rem;
+        @include border;
+        ul {
+            li {
+                a {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+    .service-area,
+    .info-area {
+        @media screen and(max-width:$lg-breakpoint) {
+            justify-content: flex-start !important;
+        }
+    }
+    .service,
+    .info {
+        margin-top: 3rem;
+        position: relative;
+        padding-left: 1.5rem;
+        @include border;
+        ul {
+            li {
+                margin: 0.5rem 0rem;
+                a {
+                    color: var(--color-white);
+                    font-size: 1rem;
+                    font-weight: 500;
+                    transition: 0.3s all;
+                    @media screen and(max-width:1440px) {
+                        font-size: 0.9rem;
+                    }
+                    &:hover {
+                        color: var(--color-red);
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        background-color: var(--color-white);
+        padding: 1rem 0rem;
+        margin-top: 2rem;
+        .col-lg-6 {
+            @media screen and(max-width:$lg-breakpoint) {
+                justify-content: center !important;
+                text-align: center;
+            }
+        }
+        span {
+            color: var(--color-black);
+            font-size: 0.9rem;
+            font-weight: 300;
+            display: block;
+            @media screen and(max-width:$lg-breakpoint) {
+                margin-bottom: 0.5rem;
+            }
+        }
+        img {
+            filter: invert(1);
+            max-width: 2.8rem;
+        }
     }
 }
