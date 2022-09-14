@@ -1,25 +1,31 @@
-const menuToggle = document.querySelector("#toggle-btn");
-const navigation = document.querySelector(".nav-menu");
-const headerInner = document.querySelector(".header-inner");
-const listItem = document.querySelectorAll(".list-item");
+const menuToggle = document.querySelector('.menu-toggle');
+const wrapper = document.querySelector('.wrapper');
+const navigation = document.querySelector('.menu-area');
+const collapse = document.querySelector('.collapse');
 menuToggle.onclick = function () {
-  menuToggle.classList.toggle("active");
-  navigation.classList.toggle("active");
-  headerInner.classList.toggle("bg-white");
+    menuToggle.classList.toggle('active');
+    collapse.classList.toggle('active');
+    navigation.classList.toggle('active');
+    wrapper.classList.toggle("menu--is-revealed");
+    if (menuToggle.innerHTML === `<i class="fa-solid fa-xmark"></i>`) {
+        menuToggle.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+    } else {
+        menuToggle.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+    }
+}
 
-  if (menuToggle.innerHTML === `<i class="fa-solid fa-xmark"></i>`) {
-    menuToggle.innerHTML = `<i class="fa-solid fa-bars"></i>`;
-  } else {
-    menuToggle.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
-  }
-};
-$(window).scroll(function () {
-  if ($(this).scrollTop() > 100) {
-    $(".header").addClass("sticky");
-  } else {
-    $(".header").removeClass("sticky");
-  }
+const header = document.querySelector(".header");
+const headerHeight = parseInt(window.getComputedStyle(header).height);
+
+document.addEventListener("scroll", function () {
+    if (window.scrollY > headerHeight) {
+        header.classList.add("header_scroll");
+    } else {
+        header.classList.remove("header_scroll");
+    };
 });
+
+
 
 var swiperBanner = new Swiper(".mySwiperBanner", {});
 
