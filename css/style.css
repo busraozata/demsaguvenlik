@@ -232,6 +232,10 @@ header .menu-toggle {
   top: 40%;
 }
 
+header .language-area {
+  margin: 0rem 1.5rem;
+}
+
 @media screen and (max-width: 1200px) {
   header .language-area {
     -webkit-box-pack: start !important;
@@ -240,12 +244,14 @@ header .menu-toggle {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    margin-left: 1rem;
+    margin-left: 1rem !important;
+    margin: 0rem;
   }
 }
 
 header .language-area img {
   max-width: 2rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1750px) {

@@ -330,13 +330,16 @@ header {
     }
 
     .language-area {
+        margin: 0rem 1.5rem;
         @media screen and(max-width:$xl-breakpoint) {
             justify-content: flex-start !important;
             align-items: flex-start;
-            margin-left: 1rem;
+            margin-left: 1rem !important;
+            margin: 0rem;
         }
         img {
             max-width: 2rem;
+            cursor: pointer;
         }
     }
 
