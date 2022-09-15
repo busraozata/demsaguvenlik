@@ -263,10 +263,62 @@ header {
     left: 0;
     z-index: 9999;
     transition: 0.5s;
-    padding: 8rem 0rem;
+    padding: 8rem 5rem;
+
+    @media screen and(max-width:1440px) {
+        padding: 8rem 1rem;
+        &.bg-color {
+            background-color: var(--color-white);
+            .menu-toggle {
+                i {
+                    color: var(--color-black);
+                }
+            }
+        }
+    }
+
+    @media screen and(max-width:$xl-breakpoint) {
+        padding: 4rem 0.5rem;
+    }
 
     &.header_scroll {
-        background-color: rgba(255, 255, 255, 0.414);
+        background-color: var(--color-white);
+        padding: 4rem 1rem;
+
+        @media screen and(max-width:$xl-breakpoint) {
+            padding: 4rem 0.5rem;
+        }
+
+        .nav-link {
+            padding: 2.8rem 1.5rem !important;
+            @media screen and(max-width:1440px) {
+                padding: 0.5rem 1rem !important;
+            }
+            &::before {
+                bottom: 2.4rem !important;
+            }
+        }
+
+        a,
+        button {
+            color: var(--color-black) !important;
+        }
+        .language-area {
+            img {
+                filter: inherit;
+            }
+        }
+        .menu-toggle {
+            i {
+                color: var(--color-black);
+            }
+        }
+    }
+    .wrapper {
+        display: none;
+        @media screen and(max-width:$xl-breakpoint) {
+            display: block;
+        }
     }
 
     .menu-toggle {
@@ -274,16 +326,53 @@ header {
         border: none;
         position: absolute;
         right: 1rem;
-        top: 1.5rem;
+        top: 40%;
     }
 
+    .language-area {
+        @media screen and(max-width:$xl-breakpoint) {
+            justify-content: flex-start !important;
+            align-items: flex-start;
+            margin-left: 1rem;
+        }
+        img {
+            max-width: 2rem;
+        }
+    }
+
+    .social-media {
+        @media screen and(min-width:1750px) {
+            margin: 0px 6rem;
+        }
+        @media screen and(max-width:1440px) {
+            margin: 0px 2rem;
+        }
+
+        @media screen and(max-width:$xl-breakpoint) {
+            display: flex !important;
+            margin: 0rem;
+            margin-top: 1.5rem;
+            margin-left: 1rem;
+        }
+        ul {
+            li {
+                a {
+                    color: var(--color-black);
+                    font-size: 1.3rem;
+                    @media screen and(max-width:1024px) {
+                        color: var(--color-black);
+                    }
+                }
+            }
+        }
+    }
     .collapse {
-        @media screen and(max-width:$lg-breakpoint) {
+        @media screen and(max-width:$xl-breakpoint) {
             position: fixed;
             height: 100vh;
             width: 0;
             background: var(--color-white);
-            top: 5rem;
+            top: 8rem;
             left: 0;
             right: 0;
             z-index: 99999;
@@ -292,76 +381,98 @@ header {
             visibility: hidden;
             transition: 0.3s all;
             display: block !important;
+            flex-direction: column;
         }
 
         &.active {
-            padding: 0rem 1rem;
+            padding: 2rem 1rem;
             opacity: 9 !important;
             visibility: visible !important;
             width: 100% !important;
         }
-
     }
 
     .navbar-nav {
+        @media screen and(max-width:$xl-breakpoint) {
+            flex-direction: column !important;
+        }
         .nav-item {
-
             .nav-link {
                 color: var(--color-black);
-                font-weight: 500;
-                font-size: 1rem;
-                padding: 1.7rem 0.8rem;
+                font-weight: 600;
+                font-size: 1.4rem;
+                padding: 1.7rem 1rem;
+                position: relative;
 
-                @media screen and(max-width:$lg-breakpoint) {
-                    padding: 0.5rem 0rem;
+                @media screen and(max-width:1440px) {
+                    font-size: 1.2rem;
+                }
+
+                @media screen and(max-width:$xl-breakpoint) {
+                    padding: 0.5rem 1rem !important;
+                    color: var(--color-black);
+                }
+
+                @media screen and(min-width:$xl-breakpoint) {
+                    &::before {
+                        content: "";
+                        height: 2px;
+                        width: 0px;
+                        background-color: var(--color-red);
+                        position: absolute;
+                        bottom: 1rem;
+                        transition: 0.3s all;
+                    }
+                }
+
+                @media screen and(max-width:$sm-breakpoint) {
+                    font-size: 1.2rem;
                 }
 
                 &:hover {
-                    color: var(--color-purple);
+                    color: var(--color-red);
+                    &::before {
+                        width: 50%;
+                    }
                 }
-
                 &.active {
-                    color: var(--color-purple);
+                    color: var(--color-red);
                 }
             }
 
             &:hover {
                 .dropdown-menu {
-                    @media screen and (min-width:$lg-breakpoint) {
+                    @media screen and (min-width: $xl-breakpoint) {
                         display: block;
                     }
                 }
             }
 
-
             .dropdown-menu {
                 border-radius: 0rem;
-                border-top: 3px solid var(--color-purple);
 
-
-
-                @media screen and(max-width:$lg-breakpoint) {
-                    position: relative;
+                @media screen and(max-width:$xl-breakpoint) {
+                    position: relative !important;
                     overflow: scroll;
                     height: 12rem;
                     box-shadow: none !important;
                     border: none;
-                    padding-left: 0rem;
+                    padding-left: 1rem;
+                    top: inherit !important;
                 }
 
                 li {
                     a {
-                        font-size: 0.9rem;
+                        font-size: 1rem;
                         font-weight: 500;
 
-                        @media screen and(max-width:$lg-breakpoint) {
-
+                        @media screen and(max-width:$xl-breakpoint) {
                             padding-left: 0rem;
                         }
 
                         &:hover {
                             background-color: transparent;
-                            color: var(--color-purple);
+                            color: var(--color-red);
                         }
                     }
                 }
@@ -370,14 +481,17 @@ header {
     }
 
     .navbar-brand {
-        img {
-            max-width: 5rem;
-            @media screen and(min-width:$lg-breakpoint) {
-                max-width: 10rem;
-            }
+        width: 24%;
+        display: block;
+        max-width: 20rem;
+        width: 100%;
+        @media screen and(max-width:1440px) {
+            max-width: 16rem;
+        }
+        @media screen and(max-width:$lg-breakpoint) {
+            max-width: 13rem;
         }
     }
-
 }
 
 .banner {
@@ -412,7 +526,7 @@ header {
             padding: 2rem 0rem;
 
             @media screen and(max-width:$lg-breakpoint) {
-                min-height: 50vh;
+                min-height: 70vh;
                 padding: 4rem 0rem;
                 background-position: left !important;
             }
@@ -422,16 +536,17 @@ header {
                 height: 100%;
                 width: 100%;
                 position: absolute;
-                background-color: rgba(0, 0, 0, 0.041);
+                background-color: rgba(255, 255, 255, 0.849);
+
                 z-index: -1;
                 left: 0;
                 right: 0;
                 top: 0;
                 bottom: 0;
 
-                @media screen and(max-width:$lg-breakpoint) {
+                /*    @media screen and(max-width:$lg-breakpoint) {
                     background-color: rgba(0, 0, 0, 0.26);
-                }
+                } */
             }
 
             img {
@@ -481,17 +596,16 @@ header {
                     }
 
                     p {
-                        color: var(--color-white);
+                        color: var(--color-black);
                         font-weight: 500;
                         font-size: 1rem;
-                        font-family: "Proxima Nova Th";
                     }
                 }
 
                 .btn {
-                    color: var(--color-white);
+                    color: var(--color-black);
                     margin-left: 2rem;
-                    border: 1px solid var(--color-white);
+                    border: 1px solid var(--color-black);
                     border-radius: 5px;
                     margin-top: 2rem;
                     transition: 0.3s all;
@@ -500,6 +614,7 @@ header {
                     &:hover {
                         background-color: var(--color-red);
                         border: 1px solid var(--color-red);
+                        color: var(--color-white);
                     }
                 }
             }
@@ -958,6 +1073,7 @@ header {
                     font-size: 1.5rem;
                     font-weight: 600;
                     transition: 0.3s all;
+                    margin-bottom: 1.5rem;
 
                     @media screen and(max-width:$lg-breakpoint) {
                         font-size: 1.3rem;
@@ -992,7 +1108,8 @@ header {
 
     @media screen and(max-width:$lg-breakpoint) {
         padding: 4rem 1rem;
-        background-image: linear-gradient(90deg, #c91b1b 50%, #1f1e1f 50%);
+        background-color: var(--color-red) !important;
+        background-image: none;
     }
 
     .box {
@@ -1058,17 +1175,19 @@ footer {
 
     .img-wrapper {
         img {
-            max-width: 10rem;
+            @media screen and(max-width:$lg-breakpoint) {
+                max-width: 15rem;
+            }
         }
     }
 
     .social-media {
-        margin: 3rem 0rem 2rem 0rem;
+        margin: 3rem 0rem 2rem 1.3rem;
 
         ul {
             li {
                 a {
-                    color: var(--color-red);
+                    color: var(--color-white);
                     font-size: 1.5rem;
                 }
             }
@@ -1076,16 +1195,13 @@ footer {
     }
 
     .contact {
+        margin-left: 1.3rem;
         ul {
             li {
                 a {
                     color: var(--color-white);
                     font-weight: 300;
-                    font-size: 1rem;
-
-                    @media screen and(max-width:1440px) {
-                        font-size: 0.9rem;
-                    }
+                    font-size: 0.9rem;
 
                     i {
                         color: var(--color-red);
@@ -1099,9 +1215,11 @@ footer {
 
     h4 {
         color: var(--color-white);
-        font-weight: 500;
-        font-size: 1.2rem;
-        font-family: "Proxima Nova Th";
+        font-weight: 600;
+        font-size: 1.3rem;
+        @media screen and(max-width:$lg-breakpoint) {
+            font-size: 1.1rem;
+        }
     }
 
     .address {
@@ -1111,11 +1229,8 @@ footer {
 
         p {
             color: var(--color-white);
-            font-size: 1rem;
+            font-size: 0.9rem;
 
-            @media screen and(max-width:1440px) {
-                font-size: 0.9rem;
-            }
         }
 
         @include border;
@@ -1131,6 +1246,7 @@ footer {
             li {
                 a {
                     color: var(--color-white);
+                    font-size: 0.9rem;
                 }
             }
         }
@@ -1156,13 +1272,9 @@ footer {
 
                 a {
                     color: var(--color-white);
-                    font-size: 1rem;
-                    font-weight: 500;
+                    font-size: 0.9rem;
+                    font-weight: 300;
                     transition: 0.3s all;
-
-                    @media screen and(max-width:1440px) {
-                        font-size: 0.9rem;
-                    }
 
                     &:hover {
                         color: var(--color-red);

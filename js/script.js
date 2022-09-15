@@ -7,6 +7,7 @@ menuToggle.onclick = function () {
     collapse.classList.toggle('active');
     navigation.classList.toggle('active');
     wrapper.classList.toggle("menu--is-revealed");
+    header.classList.toggle("bg-color");
     if (menuToggle.innerHTML === `<i class="fa-solid fa-xmark"></i>`) {
         menuToggle.innerHTML = `<i class="fa-solid fa-bars"></i>`;
     } else {
