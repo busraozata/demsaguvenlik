@@ -340,6 +340,7 @@ header {
         img {
             max-width: 2rem;
             cursor: pointer;
+            object-fit: cover;
         }
     }
 
@@ -1192,6 +1193,10 @@ footer {
                 a {
                     color: var(--color-white);
                     font-size: 1.5rem;
+                    transition: 0.3s all;
+                    &:hover{
+                        color: var(--color-red);
+                    }
                 }
             }
         }
@@ -1205,6 +1210,10 @@ footer {
                     color: var(--color-white);
                     font-weight: 300;
                     font-size: 0.9rem;
+
+                    &.phone{
+                        font-size: 2.2rem;
+                    }
 
                     i {
                         color: var(--color-red);
