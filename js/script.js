@@ -27,7 +27,6 @@ document.addEventListener("scroll", function () {
 });
 
 
-
 var swiperBanner = new Swiper(".mySwiperBanner", {});
 
 const fraction = document.getElementById("fraction");
@@ -112,6 +111,8 @@ var swiperBlog = new Swiper(".mySwiperBlog", {
     },
   },
 });
+
+
 
 function inVisible(element) {
   //Checking if the element is
