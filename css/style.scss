@@ -1494,12 +1494,32 @@ header {
         display: inline-block;
     }
 
+    .owl-dots{
+        display: none;
+    }
     .owl-next {
         float: right;
     }
 
     .slider-counter {
         text-align: center;
+    }
+
+    .owl-nav{
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        right: 0;
+        left: 0;
+        bottom: -5.5rem;
+    }
+
+    .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot{
+        margin-left: 1.5rem;
+    }
+    .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot{
+        margin-right: 1.5rem;
     }
 
     .slide-area {
@@ -1514,6 +1534,29 @@ header {
         }
     }
 
+    .start-count {
+        position: absolute;
+        left: -1.9rem;
+        font-size: 1.5rem;
+        top: -0.3rem;
+    }
+
+    .counter-length {
+        font-size: 4rem;
+        font-weight: 800;
+        position: relative;
+
+        &::before {
+            content: "";
+            background-color: var(--color-black);
+            height: 1.8rem;
+            width: 0.2rem;
+            position: absolute;
+            transform: rotate(20deg);
+            top: 0rem;
+            left: -0.7rem;
+        }
+    }
     .card {
         @include serviceCard;
         .card-body {

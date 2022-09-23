@@ -26,6 +26,9 @@ document.addEventListener("scroll", function () {
   }
 });
 
+
+
+
 function inVisible(element) {
   //Checking if the element is
   //visible in the viewport
@@ -38,6 +41,19 @@ function inVisible(element) {
   if (ElementBottom <= WindowBottom && ElementTop >= WindowTop)
     animate(element);
 }
+
+//When the document is ready
+$(function () {
+  //This is triggered when the
+  //user scrolls the page
+  $(window).scroll(function () {
+    //Checking if each items to animate are
+    //visible in the viewport
+    $("h2[data-max]").each(function () {
+      inVisible($(this));
+    });
+  });
+});
 
 function animate(element) {
   //Animating the element if not animated before
@@ -66,25 +82,25 @@ function animate(element) {
   }
 }
 
-$(function () {
+$(document).ready(function () {
+
   $(".slider")
     .on("initialized.owl.carousel changed.owl.carousel", function (e) {
       if (!e.namespace) {
         return;
       }
       var carousel = e.relatedTarget;
-      $(".slider-counterr").text(
-        carousel.relative(carousel.current()) +
-          1 +
-          "/" +
-          carousel.items().length
+      $(".start-count").text(carousel.relative(carousel.current()) +
+        1)
+      $(".counter-length").text(
+        carousel.items().length
       );
     })
     .owlCarousel({
       items: 4,
       loop: true,
       margin: 20,
-      nav: true,
+      navText: [`<div class='nav-button owl-prev'><img src="../img/left.png" class="img-fluid" alt="owl-rigth" /></div>`, `<div class='nav-button owl-next'><img src="../img/right.png" class="img-fluid" alt="owl-rigth" /></div>`],
       responsive: {
         0: {
           items: 1,
@@ -102,6 +118,7 @@ $(function () {
       },
     });
 });
+
 
 var swiperBanner = new Swiper(".mySwiperBanner", {});
 
@@ -170,9 +187,8 @@ var swiperServices = new Swiper(".mySwiperServices", {
   },
   on: {
     slideChange: () => {
-      fraction.innerHTML = `<span class="start-count">${
-        swiperServices.realIndex + 1
-      }</span> <span class="counter-length">${slideCount}</span>`;
+      fraction.innerHTML = `<span class="start-count">${swiperServices.realIndex + 1
+        }</span> <span class="counter-length">${slideCount}</span>`;
     },
   },
 });
@@ -205,22 +221,9 @@ var swiperBlog = new Swiper(".mySwiperBlog", {
   },
   on: {
     slideChange: () => {
-      fraction2.innerHTML = `<span class="start-count">${
-        swiperBlog.realIndex + 1
-      }</span> <span class="counter-length">${slideCount2}</span>`;
+      fraction2.innerHTML = `<span class="start-count">${swiperBlog.realIndex + 1
+        }</span> <span class="counter-length">${slideCount2}</span>`;
     },
   },
 });
 
-//When the document is ready
-$(function () {
-  //This is triggered when the
-  //user scrolls the page
-  $(window).scroll(function () {
-    //Checking if each items to animate are
-    //visible in the viewport
-    $("h2[data-max]").each(function () {
-      inVisible($(this));
-    });
-  });
-});
