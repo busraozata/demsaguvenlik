@@ -216,6 +216,172 @@
     }
 }
 
+@mixin widgets {
+    padding-left: 1rem;
+    margin-top: 0.8rem;
+    .search-widget {
+        h4 {
+            color: var(--color-white);
+            font-size: 2.5rem;
+            font-weight: 800;
+            position: relative;
+            @include border;
+            margin: 0rem 0rem 2rem 1.3rem;
+            padding-left: 0.5rem;
+            &::before {
+                background-color: var(--color-white);
+                left: -1.2rem;
+                height: 1.8rem;
+                top: -0.8rem;
+            }
+        }
+        form {
+            .input-group {
+                max-width: 20rem;
+                width: 100%;
+                position: relative;
+                input {
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                    border-radius: 10px !important;
+                    padding: 0.7rem !important;
+                    border: none;
+                }
+
+                button {
+                    position: absolute;
+                    top: 0;
+                    right: -0.4rem;
+                    bottom: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 2rem;
+                    background-color: transparent;
+                    border: none;
+                    color: var(--color-black);
+                    z-index: 99;
+                    padding-right: 2rem;
+                    i {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .last-post-widget {
+        margin-top: 7rem;
+        h4 {
+            color: var(--color-black);
+            font-size: 2.2rem;
+            font-weight: 800;
+            position: relative;
+            @include border;
+            margin: 0rem 0rem 2rem 1.3rem;
+            padding-left: 0.5rem;
+            &::before {
+                background-color: var(--color-black);
+                left: -1.2rem;
+                height: 1.8rem;
+                top: -0.8rem;
+            }
+        }
+        .swiper {
+            width: 100%;
+            height: 75rem;
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                display: inline-block; // Browser destekleri için ilaveten kullanıyoruz
+                word-break: break-word;
+                table-layout: fixed; //
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 0rem;
+                &::before {
+                    background-color: transparent;
+                }
+
+                a {
+                    width: 100%;
+                    height: 100%;
+                    transition: 0.3s all;
+                    color: var(--color-black);
+
+                    &:hover {
+                        color: var(--color-red);
+                    }
+                    .card-img-top {
+                        /*  max-width: 8rem; */
+                        object-fit: cover;
+                        /*  @media screen and(max-width:$sm-breakpoint) {
+                            max-width: 6rem;
+                        } */
+                    }
+
+                    span {
+                        font-size: 0.9rem;
+                        color: var(--color-turquoise);
+                        font-weight: 400;
+                        text-align: left !important;
+                        margin-top: 1rem;
+                    }
+                    i {
+                        margin-top: 0.6rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin singlePost {
+    h4 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--color-black);
+        margin: 1.5rem 0rem;
+    }
+    p {
+        color: var(--text-color);
+        font-weight: 300;
+        font-size: 1rem;
+        @media screen and(max-width:1440px) {
+            font-size: 0.9rem;
+        }
+    }
+    a {
+        color: var(--color-black);
+        transition: 0.3s all;
+        &:hover {
+            color: var(--color-red);
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+@mixin blog {
+    padding: 5rem 0rem 0rem 0rem;
+    margin-top: -19rem;
+    z-index: 99;
+    position: relative;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -1314,11 +1480,80 @@ header {
     }
 }
 
+.space {
+    background-color: var(--color-red);
+    padding: 10rem 0rem;
+    position: relative;
+}
+
+.blog-page {
+    @include blog;
+
+    .single-post {
+        @include singlePost;
+    }
+
+    .multi-post {
+        .card {
+            border: none;
+            background-color: transparent;
+            .card-body {
+                h5 {
+                    color: var(--color-black);
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                }
+                p {
+                    color: var(--text-color);
+                    font-size: 1rem;
+                    font-weight: 300;
+                    @media screen and(max-width:1440px) {
+                        font-size: 0.9rem;
+                    }
+                }
+                .btn {
+                    background-color: var(--color-red);
+                    color: var(--color-white);
+                    font-size: 1rem;
+                    padding: 0.3rem 1rem;
+                    border-radius: 0;
+                    transition: 0.3s all;
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                    &:hover {
+                        background-color: var(--color-black);
+                    }
+                }
+            }
+        }
+    }
+
+    .widgets {
+        @include widgets;
+    }
+}
+
+.blog-detail {
+    @include blog;
+    .single-post {
+        @include singlePost;
+    }
+    .widgets {
+        @include widgets;
+    }
+}
+
 .contact-page {
-    padding: 5rem 0rem;
+    padding: 5rem 2rem;
     position: relative;
     width: 100%;
     background-color: var(--color-white);
+
+    @media screen and(max-width:$lg-breakpoint) {
+        padding: 2rem;
+    }
 
     h3 {
         color: var(--color-black);
@@ -1327,9 +1562,14 @@ header {
         font-weight: 800;
         position: relative;
         @include border;
-        margin-bottom: 4rem;
+        margin-bottom: 7rem;
         &::before {
             left: -1.3rem;
+            height: 1.8rem;
+        }
+        @media screen and(max-width:$sm-breakpoint) {
+            font-size: 1.6rem;
+            margin-bottom: 4rem;
         }
     }
 
@@ -1346,59 +1586,108 @@ header {
             height: 1.5rem;
             top: -0.5rem;
         }
-    }
 
-    .phone {
-        ul {
-            li {
-                a {
-                    color: var(--color-black);
-                    font-weight: 300;
-                    font-size: 1.1rem;
+        @media screen and(max-width:$sm-breakpoint) {
+            font-size: 1.2rem;
+        }
+    }
+    .left-area {
+        @media screen and(max-width:$sm-breakpoint) {
+            padding-left: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        .phone {
+            ul {
+                li {
+                    a {
+                        color: var(--text-color);
+                        font-weight: 300;
+                        font-size: 1.1rem;
+                        @media screen and(max-width:$sm-breakpoint) {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .address {
+            margin: 2rem 0rem;
+            p {
+                max-width: 20rem;
+                font-weight: 300;
+                font-size: 1rem;
+                @media screen and(max-width:$sm-breakpoint) {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+
+        .social-media {
+            ul {
+                li {
+                    a {
+                        color: var(--color-red);
+                        font-size: 2.1rem;
+                        @media screen and(max-width:$sm-breakpoint) {
+                            font-size: 1.5rem;
+                        }
+                    }
                 }
             }
         }
     }
 
-    .address {
-        margin: 2rem 0rem;
-        p {
-            max-width: 20rem;
-            font-weight: 300;
-            font-size: 1rem;
-        }
-    }
-
-    .social-media{
-        ul{
-            li{
-                a{
-                    color: var(--color-red);
-                    font-size: 2rem;
-                }
-            }
-        }
-    }
-
-    .form-area{
-        form{
-            .form-group{
+    .form-area {
+        form {
+            .form-group {
                 margin-bottom: 1.5rem;
-                .form-control{
+                .form-control {
                     padding: 0.9rem 1rem;
                     border-radius: 0.55rem;
                     border: 1px solid #bbbbbb;
                     color: var(--color-black);
-                    ::placeholder{
+                    resize: none;
+                    ::placeholder {
                         color: #bbbbbb;
                     }
-                    &:focus{
+                    &:focus {
                         box-shadow: none;
-                        
                     }
                 }
             }
+            .btn {
+                border: 1px solid var(--text-color);
+                border-radius: 0.55rem;
+                padding: 0.5rem 1rem;
+                color: var(--color-black);
+                transition: 0.3s all;
+                &:hover {
+                    background-color: var(--color-red);
+                    color: var(--color-white);
+                    border: 1px solid var(--color-red);
+                }
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
         }
+    }
+}
+
+.map {
+    position: relative;
+    min-height: 50vh;
+    width: 100%;
+    iframe {
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
     }
 }
 
