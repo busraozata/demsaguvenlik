@@ -1505,6 +1505,7 @@ header .navbar-brand {
 .our-services {
   padding: 4rem 0rem;
   position: relative;
+  min-height: 100vh;
 }
 
 .our-services h2 {
@@ -1519,16 +1520,129 @@ header .navbar-brand {
   }
 }
 
-.our-services h5 {
+.our-services .sub-title {
   color: var(--color-black);
   font-weight: 600;
   font-size: 1.4rem;
+  margin-bottom: 10rem;
 }
 
 @media screen and (max-width: 991px) {
-  .our-services h5 {
+  .our-services .sub-title {
     font-size: 1.2rem;
   }
+}
+
+.our-services .owl-item {
+  color: white;
+  text-align: center;
+}
+
+.our-services .owl-prev,
+.our-services .owl-next {
+  display: inline-block;
+}
+
+.our-services .owl-next {
+  float: right;
+}
+
+.our-services .slider-counter {
+  text-align: center;
+}
+
+.our-services .slide-area {
+  background-color: var(--color-red);
+  min-height: 40rem;
+  position: relative;
+}
+
+.our-services .slide-area .slide-content {
+  position: absolute;
+  top: -5rem;
+  left: 0;
+  right: 0;
+}
+
+.our-services .card {
+  padding: 0;
+  border: 0rem;
+  border-radius: 0rem;
+  background-color: transparent;
+}
+
+.our-services .card img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .our-services .card img {
+    height: 17rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .our-services .card img {
+    height: 23rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .our-services .card img {
+    height: 17rem;
+  }
+}
+
+.our-services .card .card-body {
+  padding: 3rem;
+  background-color: var(--color-white);
+}
+
+.our-services .card .card-body h5 {
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.our-services .card .card-body p {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.our-services .card .card-body .btn {
+  padding-left: 0rem;
+  color: var(--color-red);
+  font-size: 1rem;
+  display: -webkit-inline-box !important;
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+}
+
+.our-services .card .card-body .btn:hover i {
+  margin-left: 1rem;
+}
+
+.our-services .card .card-body .btn i {
+  color: var(--color-black);
+  margin-left: 0.4rem;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+@media screen and (max-width: 991px) {
+  .our-services .card .card-body {
+    padding: 2rem;
+  }
+}
+
+.our-services .card .card-body {
+  padding: 2rem;
 }
 
 .space {

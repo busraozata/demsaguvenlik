@@ -1,36 +1,112 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const wrapper = document.querySelector('.wrapper');
-const navigation = document.querySelector('.menu-area');
-const collapse = document.querySelector('.collapse');
+const menuToggle = document.querySelector(".menu-toggle");
+const wrapper = document.querySelector(".wrapper");
+const navigation = document.querySelector(".menu-area");
+const collapse = document.querySelector(".collapse");
 menuToggle.onclick = function () {
-    menuToggle.classList.toggle('active');
-    collapse.classList.toggle('active');
-    navigation.classList.toggle('active');
-    wrapper.classList.toggle("menu--is-revealed");
-    header.classList.toggle("bg-color");
-    if (menuToggle.innerHTML === `<i class="fa-solid fa-xmark"></i>`) {
-        menuToggle.innerHTML = `<i class="fa-solid fa-bars"></i>`;
-    } else {
-        menuToggle.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
-    }
-}
+  menuToggle.classList.toggle("active");
+  collapse.classList.toggle("active");
+  navigation.classList.toggle("active");
+  wrapper.classList.toggle("menu--is-revealed");
+  header.classList.toggle("bg-color");
+  if (menuToggle.innerHTML === `<i class="fa-solid fa-xmark"></i>`) {
+    menuToggle.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+  } else {
+    menuToggle.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+  }
+};
 
 const header = document.querySelector(".header");
 const headerHeight = parseInt(window.getComputedStyle(header).height);
 
 document.addEventListener("scroll", function () {
-    if (window.scrollY > headerHeight) {
-        header.classList.add("header_scroll");
-    } else {
-        header.classList.remove("header_scroll");
-    };
+  if (window.scrollY > headerHeight) {
+    header.classList.add("header_scroll");
+  } else {
+    header.classList.remove("header_scroll");
+  }
 });
 
+function inVisible(element) {
+  //Checking if the element is
+  //visible in the viewport
+  var WindowTop = $(window).scrollTop();
+  var WindowBottom = WindowTop + $(window).height();
+  var ElementTop = element.offset().top;
+  var ElementBottom = ElementTop + element.height();
+  //animating the element if it is
+  //visible in the viewport
+  if (ElementBottom <= WindowBottom && ElementTop >= WindowTop)
+    animate(element);
+}
+
+function animate(element) {
+  //Animating the element if not animated before
+  if (!element.hasClass("ms-animated")) {
+    var maxval = element.data("max");
+    var html = element.html();
+    element.addClass("ms-animated");
+    $({
+      countNum: element.html(),
+    }).animate(
+      {
+        countNum: maxval,
+      },
+      {
+        //duration 5 seconds
+        duration: 1000,
+        easing: "linear",
+        step: function () {
+          element.html(Math.floor(this.countNum) + html);
+        },
+        complete: function () {
+          element.html(this.countNum + html);
+        },
+      }
+    );
+  }
+}
+
+$(function () {
+  $(".slider")
+    .on("initialized.owl.carousel changed.owl.carousel", function (e) {
+      if (!e.namespace) {
+        return;
+      }
+      var carousel = e.relatedTarget;
+      $(".slider-counterr").text(
+        carousel.relative(carousel.current()) +
+          1 +
+          "/" +
+          carousel.items().length
+      );
+    })
+    .owlCarousel({
+      items: 4,
+      loop: true,
+      margin: 20,
+      nav: true,
+      responsive: {
+        0: {
+          items: 1,
+          nav: true,
+        },
+        600: {
+          items: 2,
+          nav: true,
+        },
+        1400: {
+          items: 4,
+          nav: true,
+          loop: true,
+        },
+      },
+    });
+});
 
 var swiperBanner = new Swiper(".mySwiperBanner", {});
 
 var swiper = new Swiper(".mySwiperLastPosts", {
-  direction: 'vertical',
+  direction: "vertical",
   slidesPerView: 3,
   spaceBetween: 5,
   loop: true,
@@ -135,50 +211,6 @@ var swiperBlog = new Swiper(".mySwiperBlog", {
     },
   },
 });
-
-
-
-
-
-function inVisible(element) {
-  //Checking if the element is
-  //visible in the viewport
-  var WindowTop = $(window).scrollTop();
-  var WindowBottom = WindowTop + $(window).height();
-  var ElementTop = element.offset().top;
-  var ElementBottom = ElementTop + element.height();
-  //animating the element if it is
-  //visible in the viewport
-  if (ElementBottom <= WindowBottom && ElementTop >= WindowTop)
-    animate(element);
-}
-
-function animate(element) {
-  //Animating the element if not animated before
-  if (!element.hasClass("ms-animated")) {
-    var maxval = element.data("max");
-    var html = element.html();
-    element.addClass("ms-animated");
-    $({
-      countNum: element.html(),
-    }).animate(
-      {
-        countNum: maxval,
-      },
-      {
-        //duration 5 seconds
-        duration: 1000,
-        easing: "linear",
-        step: function () {
-          element.html(Math.floor(this.countNum) + html);
-        },
-        complete: function () {
-          element.html(this.countNum + html);
-        },
-      }
-    );
-  }
-}
 
 //When the document is ready
 $(function () {

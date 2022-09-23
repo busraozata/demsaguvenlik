@@ -382,6 +382,58 @@
     position: relative;
 }
 
+@mixin serviceCard {
+    padding: 0;
+    border: 0rem;
+    border-radius: 0rem;
+    background-color: transparent;
+
+    img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+        border-radius: none;
+
+        @media screen and(min-width:$xl-breakpoint) {
+            height: 17rem;
+        }
+
+        @media screen and(max-width:$xl-breakpoint) {
+            height: 23rem;
+        }
+
+        @media screen and(max-width:$lg-breakpoint) {
+            height: 17rem;
+        }
+    }
+
+    .card-body {
+        padding: 3rem;
+        background-color: var(--color-white);
+
+        h5 {
+            color: var(--color-black);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .btn {
+            @include btn;
+        }
+
+        @media screen and(max-width:$lg-breakpoint) {
+            padding: 2rem;
+        }
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -958,55 +1010,7 @@ header {
                 }
 
                 .card {
-                    padding: 0;
-                    border: 0rem;
-                    border-radius: 0rem;
-                    background-color: transparent;
-
-                    img {
-                        display: block;
-                        width: 100%;
-                        object-fit: cover;
-                        border-radius: none;
-
-                        @media screen and(min-width:$xl-breakpoint) {
-                            height: 17rem;
-                        }
-
-                        @media screen and(max-width:$xl-breakpoint) {
-                            height: 23rem;
-                        }
-
-                        @media screen and(max-width:$lg-breakpoint) {
-                            height: 17rem;
-                        }
-                    }
-
-                    .card-body {
-                        padding: 3rem;
-                        background-color: var(--color-white);
-
-                        h5 {
-                            color: var(--color-black);
-                            font-weight: 700;
-                            font-size: 1.5rem;
-                        }
-
-                        p {
-                            font-size: 0.9rem;
-                            margin-top: 1rem;
-                            color: var(--text-color);
-                            font-weight: 500;
-                        }
-
-                        .btn {
-                            @include btn;
-                        }
-
-                        @media screen and(max-width:$lg-breakpoint) {
-                            padding: 2rem;
-                        }
-                    }
+                    @include serviceCard;
                 }
             }
         }
@@ -1462,6 +1466,7 @@ header {
 .our-services {
     padding: 4rem 0rem;
     position: relative;
+    min-height: 100vh;
     h2 {
         color: var(--color-red);
         font-weight: 800;
@@ -1470,12 +1475,49 @@ header {
             font-size: 2.3rem;
         }
     }
-    h5 {
+    .sub-title {
         color: var(--color-black);
         font-weight: 600;
         font-size: 1.4rem;
+        margin-bottom: 10rem;
         @media screen and(max-width:$lg-breakpoint) {
             font-size: 1.2rem;
+        }
+    }
+    .owl-item {
+        color: white;
+        text-align: center;
+    }
+
+    .owl-prev,
+    .owl-next {
+        display: inline-block;
+    }
+
+    .owl-next {
+        float: right;
+    }
+
+    .slider-counter {
+        text-align: center;
+    }
+
+    .slide-area {
+        background-color: var(--color-red);
+        min-height: 40rem;
+        position: relative;
+        .slide-content {
+            position: absolute;
+            top: -5rem;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    .card {
+        @include serviceCard;
+        .card-body {
+            padding: 2rem;
         }
     }
 }
