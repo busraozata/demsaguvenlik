@@ -129,6 +129,11 @@
     font-size: 1rem;
     display: inline-flex !important;
 
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
     &:hover {
         i {
             margin-left: 1rem;
@@ -219,6 +224,9 @@
 @mixin widgets {
     padding-left: 1rem;
     margin-top: 0.8rem;
+    @media screen and(max-width:$lg-breakpoint) {
+        padding-left: 0rem;
+    }
     .search-widget {
         h4 {
             color: var(--color-white);
@@ -233,6 +241,9 @@
                 left: -1.2rem;
                 height: 1.8rem;
                 top: -0.8rem;
+            }
+            @media screen and(max-width:$xl-breakpoint) {
+                font-size: 1.7rem;
             }
         }
         form {
@@ -274,6 +285,7 @@
 
     .last-post-widget {
         margin-top: 7rem;
+
         h4 {
             color: var(--color-black);
             font-size: 2.2rem;
@@ -288,10 +300,19 @@
                 height: 1.8rem;
                 top: -0.8rem;
             }
+            @media screen and(max-width:$xl-breakpoint) {
+                font-size: 1.7rem;
+            }
         }
         .swiper {
             width: 100%;
             height: 75rem;
+            @media screen and(max-width:$xl-breakpoint) {
+                height: 33rem;
+            }
+            @media screen and(max-width:$sm-breakpoint) {
+                height: 25rem;
+            }
             .swiper-slide {
                 text-align: center;
                 font-size: 18px;
@@ -356,6 +377,9 @@
         font-weight: 800;
         color: var(--color-black);
         margin: 1.5rem 0rem;
+        @media screen and(max-width:$lg-breakpoint) {
+            font-size: 1.5rem;
+        }
     }
     p {
         color: var(--text-color);
@@ -380,6 +404,9 @@
     margin-top: -19rem;
     z-index: 99;
     position: relative;
+    @media screen and(max-width:$lg-breakpoint) {
+        margin-top: -16rem;
+    }
 }
 
 @mixin serviceCard {
@@ -415,6 +442,9 @@
             color: var(--color-black);
             font-weight: 700;
             font-size: 1.5rem;
+            @media screen and(max-width:1440px) {
+                font-size: 1.4rem;
+            }
         }
 
         p {
@@ -564,7 +594,7 @@ header {
 
     .social-media {
         @media screen and(min-width:1750px) {
-            margin: 0px 6rem;
+            margin: 0px 3rem;
         }
         @media screen and(max-width:1440px) {
             margin: 0px 2rem;
@@ -719,6 +749,16 @@ header {
 .banner {
     position: relative;
 
+    &.coming-soon {
+        .swiper-slide {
+            @media screen and(max-width:$lg-breakpoint) {
+                min-height: 100vh !important;
+                padding: 0rem !important;
+                padding-bottom: 2rem !important;
+            }
+        }
+    }
+
     .swiper {
         width: 100%;
         height: 100%;
@@ -776,6 +816,65 @@ header {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+            }
+
+            .content-coming-page {
+                img {
+                    max-width: 22rem;
+                    @media screen and(max-width:$sm-breakpoint) {
+                        max-width: 17rem;
+                    }
+                }
+                h1 {
+                    color: var(--color-red);
+                    font-weight: 700;
+                    font-size: 4.5rem;
+                    text-align: center;
+                    margin-bottom: 2rem;
+
+                    @media screen and(max-width:$lg-breakpoint) {
+                        font-size: 2rem;
+                    }
+                }
+                .contact-area {
+                    margin-top: 4rem;
+                    .contact {
+                        h4 {
+                            font-size: 1.3rem;
+                            font-weight: 800;
+                            color: var(--color-red);
+                            margin-bottom: 1.3rem;
+                            text-align: center;
+                            @media screen and(max-width:$sm-breakpoint) {
+                                margin-bottom: 1rem;
+                            }
+                        }
+                        p {
+                            text-align: center;
+                            font-weight: 300;
+                            color: var(--text-black);
+                        }
+                        .social-media {
+                            ul {
+                                li {
+                                    a {
+                                        font-size: 1.7rem;
+                                    }
+                                }
+                            }
+                        }
+                        ul {
+                            li {
+                                a {
+                                    color: var(--color-black);
+                                }
+                            }
+                        }
+                        a {
+                            color: var(--color-black);
+                        }
+                    }
+                }
             }
 
             .content {
@@ -851,8 +950,12 @@ header {
     min-height: 55vh;
     width: 100%;
 
-    @media screen and(max-width:$sm-breakpoint) {
+    @media screen and(max-width:$lg-breakpoint) {
         min-height: 35vh;
+    }
+    @media screen and(max-width:$sm-breakpoint) {
+       padding: 0rem;
+       min-height: 25vh;
     }
     &::before {
         content: "";
@@ -875,13 +978,21 @@ header {
         max-width: 28rem;
         color: var(--color-red);
         font-weight: 800;
-        margin-top: 6rem;
+        margin-top: 12rem;
         font-size: 2.5rem;
 
         @media screen and(max-width:$sm-breakpoint) {
             font-size: 1.5rem;
             max-width: 22rem;
+            margin-top: 8rem;
         }
+    }
+    p{
+        max-width: 35rem;
+        color: var(--text-color);
+        font-size: 1rem;
+        font-weight: 300;
+        margin-top: 1rem;
     }
 }
 
@@ -1384,13 +1495,22 @@ header {
     }
 }
 
-.about-page {
+.service-page, .about-page {
     padding: 5rem 0rem;
     position: relative;
     @media screen and(max-width:$lg-breakpoint) {
         padding: 2rem 0rem;
     }
     .text {
+        h3{
+            color: var(--color-black);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            @media screen and(max-width:$lg-breakpoint) {
+                font-size: 1.5rem;
+            }
+        }
         p {
             color: var(--color-black);
             font-weight: 300;
@@ -1467,12 +1587,18 @@ header {
     padding: 4rem 0rem;
     position: relative;
     min-height: 100vh;
+    @media screen and(max-width:$lg-breakpoint) {
+        padding: 1rem 0rem 4rem 0rem !important;
+    }
     h2 {
         color: var(--color-red);
         font-weight: 800;
         font-size: 3rem;
         @media screen and(max-width:$lg-breakpoint) {
             font-size: 2.3rem;
+        }
+        @media screen and(max-width:$sm-breakpoint) {
+            font-size: 2rem;
         }
     }
     .sub-title {
@@ -1482,10 +1608,11 @@ header {
         margin-bottom: 10rem;
         @media screen and(max-width:$lg-breakpoint) {
             font-size: 1.2rem;
+            margin-bottom: 7rem;
         }
     }
     .owl-item {
-        color: white;
+        color: var(--color-white);
         text-align: center;
     }
 
@@ -1494,67 +1621,89 @@ header {
         display: inline-block;
     }
 
-    .owl-dots{
+    .owl-dots {
         display: none;
     }
-    .owl-next {
-        float: right;
-    }
 
-    .slider-counter {
-        text-align: center;
-    }
-
-    .owl-nav{
+    .owl-nav {
         position: absolute;
         justify-content: center;
         align-items: center;
         display: flex;
         right: 0;
         left: 0;
-        bottom: -5.5rem;
+        color: var(--color-white);
+        bottom: -8rem;
+        img {
+            filter: invert(1);
+        }
+
+        @media screen and(max-width:$xl-breakpoint) {
+            bottom: -7.3rem;
+        }
+
+        @media screen and(max-width:320px) {
+            bottom: -4.3rem;
+        }
     }
 
-    .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot{
+    .owl-carousel .owl-nav button.owl-next,
+    .owl-carousel .owl-nav button.owl-prev,
+    .owl-carousel button.owl-dot {
         margin-left: 1.5rem;
     }
-    .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot{
+    .owl-carousel .owl-nav button.owl-next,
+    .owl-carousel .owl-nav button.owl-prev,
+    .owl-carousel button.owl-dot {
         margin-right: 1.5rem;
     }
 
     .slide-area {
         background-color: var(--color-red);
-        min-height: 40rem;
+        min-height: 44rem;
         position: relative;
+        @media screen and(max-width:$sm-breakpoint) {
+            min-height: 40rem;
+        }
         .slide-content {
             position: absolute;
             top: -5rem;
             left: 0;
             right: 0;
+            .slider {
+                margin-bottom: 4rem;
+                @media screen and(max-width:$xl-breakpoint) {
+                    margin-bottom: 3rem;
+                }
+                @media screen and(max-width:320px) {
+                    margin-bottom: 0rem !important;
+                }
+            }
         }
     }
 
     .start-count {
         position: absolute;
-        left: -1.9rem;
+        left: -1.7rem;
         font-size: 1.5rem;
-        top: -0.3rem;
+        top: -0.4rem;
+        color: var(--color-white);
     }
 
     .counter-length {
         font-size: 4rem;
         font-weight: 800;
         position: relative;
-
+        color: var(--color-white);
         &::before {
             content: "";
-            background-color: var(--color-black);
+            background-color: var(--color-white);
             height: 1.8rem;
             width: 0.2rem;
             position: absolute;
             transform: rotate(20deg);
-            top: 0rem;
-            left: -0.7rem;
+            top: 0.5rem;
+            left: -0.6rem;
         }
     }
     .card {
@@ -1569,6 +1718,9 @@ header {
     background-color: var(--color-red);
     padding: 10rem 0rem;
     position: relative;
+    @media screen and(max-width:$lg-breakpoint) {
+        padding: 7rem 0rem;
+    }
 }
 
 .blog-page {
@@ -1597,24 +1749,18 @@ header {
                     }
                 }
                 .btn {
-                    background-color: var(--color-red);
-                    color: var(--color-white);
-                    font-size: 1rem;
-                    padding: 0.3rem 1rem;
-                    border-radius: 0;
-                    transition: 0.3s all;
-                    &:focus {
-                        outline: none;
-                        box-shadow: none;
-                    }
-                    &:hover {
-                        background-color: var(--color-black);
-                    }
+                    @include btn;
                 }
             }
         }
     }
-
+    .row {
+        &.column {
+            @media screen and(max-width:$lg-breakpoint) {
+                flex-direction: column-reverse !important;
+            }
+        }
+    }
     .widgets {
         @include widgets;
     }
@@ -1624,9 +1770,19 @@ header {
     @include blog;
     .single-post {
         @include singlePost;
+        .text{
+            margin-top: 3rem !important;
+        }
     }
     .widgets {
         @include widgets;
+    }
+    .row {
+        &.column {
+            @media screen and(max-width:$lg-breakpoint) {
+                flex-direction: column-reverse !important;
+            }
+        }
     }
 }
 
@@ -1713,7 +1869,7 @@ header {
                 li {
                     a {
                         color: var(--color-red);
-                        font-size: 2.1rem;
+                        font-size: 1.7rem;
                         @media screen and(max-width:$sm-breakpoint) {
                             font-size: 1.5rem;
                         }
@@ -1782,9 +1938,7 @@ footer {
 
     .img-wrapper {
         img {
-            @media screen and(max-width:$lg-breakpoint) {
-                max-width: 15rem;
-            }
+            max-width: 15rem;
         }
     }
 

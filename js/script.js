@@ -97,9 +97,11 @@ $(document).ready(function () {
       );
     })
     .owlCarousel({
-      items: 4,
       loop: true,
       margin: 20,
+      autoplay:true,
+      autoplayTimeout:2000,
+      autoplayHoverPause:true,
       navText: [`<div class='nav-button owl-prev'><img src="../img/left.png" class="img-fluid" alt="owl-rigth" /></div>`, `<div class='nav-button owl-next'><img src="../img/right.png" class="img-fluid" alt="owl-rigth" /></div>`],
       responsive: {
         0: {
@@ -124,7 +126,6 @@ var swiperBanner = new Swiper(".mySwiperBanner", {});
 
 var swiper = new Swiper(".mySwiperLastPosts", {
   direction: "vertical",
-  slidesPerView: 3,
   spaceBetween: 5,
   loop: true,
   autoplay: {
@@ -132,11 +133,11 @@ var swiper = new Swiper(".mySwiperLastPosts", {
   },
   breakpoints: {
     640: {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 5,
     },
     768: {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 50,
     },
     1024: {
@@ -155,6 +156,10 @@ fraction.innerHTML = `<span class="start-count">1</span> <span class="counter-le
 var swiperServices = new Swiper(".mySwiperServices", {
   spaceBetween: 10,
   autoHeight: true,
+  
+  autoplay: {
+    delay: 2000,
+  },
   navigation: {
     nextEl: "#swiper-button-next",
     prevEl: "#swiper-button-prev",
@@ -204,6 +209,9 @@ var swiperBlog = new Swiper(".mySwiperBlog", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  autoplay: {
+    delay: 1500,
   },
   breakpoints: {
     640: {
