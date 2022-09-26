@@ -2191,12 +2191,18 @@ header .navbar-brand {
                         } */
 }
 
+.blog-page .widgets .last-post-widget .swiper .swiper-slide a h6 {
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
 .blog-page .widgets .last-post-widget .swiper .swiper-slide a span {
   font-size: 0.9rem;
   color: var(--color-turquoise);
   font-weight: 400;
   text-align: left !important;
-  margin-top: 1rem;
 }
 
 .blog-page .widgets .last-post-widget .swiper .swiper-slide a i {
@@ -2446,12 +2452,18 @@ header .navbar-brand {
                         } */
 }
 
+.blog-detail .widgets .last-post-widget .swiper .swiper-slide a h6 {
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
 .blog-detail .widgets .last-post-widget .swiper .swiper-slide a span {
   font-size: 0.9rem;
   color: var(--color-turquoise);
   font-weight: 400;
   text-align: left !important;
-  margin-top: 1rem;
 }
 
 .blog-detail .widgets .last-post-widget .swiper .swiper-slide a i {

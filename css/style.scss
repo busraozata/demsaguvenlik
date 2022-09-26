@@ -355,12 +355,17 @@
                         } */
                     }
 
+                    h6{
+                        color: var(--color-black);
+                        font-weight: 600;
+                        font-size: 1.3rem;
+                        margin-top: 1rem;
+                    }
                     span {
                         font-size: 0.9rem;
                         color: var(--color-turquoise);
                         font-weight: 400;
                         text-align: left !important;
-                        margin-top: 1rem;
                     }
                     i {
                         margin-top: 0.6rem;
