@@ -18,6 +18,7 @@ menuToggle.onclick = function () {
 const header = document.querySelector(".header");
 const headerHeight = parseInt(window.getComputedStyle(header).height);
 
+
 document.addEventListener("scroll", function () {
   if (window.scrollY > headerHeight) {
     header.classList.add("header_scroll");
@@ -25,9 +26,6 @@ document.addEventListener("scroll", function () {
     header.classList.remove("header_scroll");
   }
 });
-
-
-
 
 function inVisible(element) {
   //Checking if the element is
@@ -83,26 +81,25 @@ function animate(element) {
 }
 
 $(document).ready(function () {
-
   $(".slider")
     .on("initialized.owl.carousel changed.owl.carousel", function (e) {
       if (!e.namespace) {
         return;
       }
       var carousel = e.relatedTarget;
-      $(".start-count").text(carousel.relative(carousel.current()) +
-        1)
-      $(".counter-length").text(
-        carousel.items().length
-      );
+      $(".start-count").text(carousel.relative(carousel.current()) + 1);
+      $(".counter-length").text(carousel.items().length);
     })
     .owlCarousel({
       loop: true,
       margin: 20,
-      autoplay:true,
-      autoplayTimeout:2000,
-      autoplayHoverPause:true,
-      navText: [`<div class='nav-button owl-prev'><img src="../img/left.png" class="img-fluid" alt="owl-rigth" /></div>`, `<div class='nav-button owl-next'><img src="../img/right.png" class="img-fluid" alt="owl-rigth" /></div>`],
+      autoplay: true,
+      autoplayTimeout: 2000,
+      autoplayHoverPause: true,
+      navText: [
+        `<div class='nav-button owl-prev'><img src="../img/left.png" class="img-fluid" alt="owl-rigth" /></div>`,
+        `<div class='nav-button owl-next'><img src="../img/right.png" class="img-fluid" alt="owl-rigth" /></div>`,
+      ],
       responsive: {
         0: {
           items: 1,
@@ -120,7 +117,6 @@ $(document).ready(function () {
       },
     });
 });
-
 
 var swiperBanner = new Swiper(".mySwiperBanner", {});
 
@@ -156,7 +152,7 @@ fraction.innerHTML = `<span class="start-count">1</span> <span class="counter-le
 var swiperServices = new Swiper(".mySwiperServices", {
   spaceBetween: 10,
   autoHeight: true,
-  
+
   autoplay: {
     delay: 2000,
   },
@@ -192,8 +188,9 @@ var swiperServices = new Swiper(".mySwiperServices", {
   },
   on: {
     slideChange: () => {
-      fraction.innerHTML = `<span class="start-count">${swiperServices.realIndex + 1
-        }</span> <span class="counter-length">${slideCount}</span>`;
+      fraction.innerHTML = `<span class="start-count">${
+        swiperServices.realIndex + 1
+      }</span> <span class="counter-length">${slideCount}</span>`;
     },
   },
 });
@@ -229,8 +226,9 @@ var swiperBlog = new Swiper(".mySwiperBlog", {
   },
   on: {
     slideChange: () => {
-      fraction2.innerHTML = `<span class="start-count">${swiperBlog.realIndex + 1
-        }</span> <span class="counter-length">${slideCount2}</span>`;
+      fraction2.innerHTML = `<span class="start-count">${
+        swiperBlog.realIndex + 1
+      }</span> <span class="counter-length">${slideCount2}</span>`;
     },
   },
 });

@@ -954,8 +954,8 @@ header {
         min-height: 35vh;
     }
     @media screen and(max-width:$sm-breakpoint) {
-       padding: 0rem;
-       min-height: 25vh;
+        padding: 0rem;
+        min-height: 25vh;
     }
     &::before {
         content: "";
@@ -987,7 +987,7 @@ header {
             margin-top: 8rem;
         }
     }
-    p{
+    p {
         max-width: 35rem;
         color: var(--text-color);
         font-size: 1rem;
@@ -1495,14 +1495,15 @@ header {
     }
 }
 
-.service-page, .about-page {
+.service-page,
+.about-page {
     padding: 5rem 0rem;
     position: relative;
     @media screen and(max-width:$lg-breakpoint) {
         padding: 2rem 0rem;
     }
     .text {
-        h3{
+        h3 {
             color: var(--color-black);
             font-size: 2rem;
             font-weight: 600;
@@ -1770,7 +1771,7 @@ header {
     @include blog;
     .single-post {
         @include singlePost;
-        .text{
+        .text {
             margin-top: 3rem !important;
         }
     }
@@ -1786,7 +1787,24 @@ header {
     }
 }
 
-.contact-page {
+.career-page {
+    h3 {
+        margin-bottom: 2rem !important;
+    }
+    p {
+        margin-bottom: 5rem;
+        max-width: 50rem;
+        width: 100%;
+    }
+    img {
+        @media screen and(min-width:$lg-breakpoint) {
+            height: 38rem;
+        }
+        object-fit: cover;
+    }
+}
+.contact-page,
+.career-page {
     padding: 5rem 2rem;
     position: relative;
     width: 100%;
@@ -1883,7 +1901,8 @@ header {
         form {
             .form-group {
                 margin-bottom: 1.5rem;
-                .form-control {
+                .form-control,
+                .form-select {
                     padding: 0.9rem 1rem;
                     border-radius: 0.55rem;
                     border: 1px solid #bbbbbb;

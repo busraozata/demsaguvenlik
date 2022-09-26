@@ -1500,18 +1500,21 @@ header .navbar-brand {
   }
 }
 
-.service-page, .about-page {
+.service-page,
+.about-page {
   padding: 5rem 0rem;
   position: relative;
 }
 
 @media screen and (max-width: 991px) {
-  .service-page, .about-page {
+  .service-page,
+  .about-page {
     padding: 2rem 0rem;
   }
 }
 
-.service-page .text h3, .about-page .text h3 {
+.service-page .text h3,
+.about-page .text h3 {
   color: var(--color-black);
   font-size: 2rem;
   font-weight: 600;
@@ -1519,19 +1522,22 @@ header .navbar-brand {
 }
 
 @media screen and (max-width: 991px) {
-  .service-page .text h3, .about-page .text h3 {
+  .service-page .text h3,
+  .about-page .text h3 {
     font-size: 1.5rem;
   }
 }
 
-.service-page .text p, .about-page .text p {
+.service-page .text p,
+.about-page .text p {
   color: var(--color-black);
   font-weight: 300;
   font-size: 1rem;
 }
 
 @media screen and (max-width: 1440px) {
-  .service-page .text p, .about-page .text p {
+  .service-page .text p,
+  .about-page .text p {
     font-size: 0.9rem;
   }
 }
@@ -2461,7 +2467,29 @@ header .navbar-brand {
   }
 }
 
-.contact-page {
+.career-page h3 {
+  margin-bottom: 2rem !important;
+}
+
+.career-page p {
+  margin-bottom: 5rem;
+  max-width: 50rem;
+  width: 100%;
+}
+
+.career-page img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 991px) {
+  .career-page img {
+    height: 38rem;
+  }
+}
+
+.contact-page,
+.career-page {
   padding: 5rem 2rem;
   position: relative;
   width: 100%;
@@ -2469,12 +2497,14 @@ header .navbar-brand {
 }
 
 @media screen and (max-width: 991px) {
-  .contact-page {
+  .contact-page,
+  .career-page {
     padding: 2rem;
   }
 }
 
-.contact-page h3 {
+.contact-page h3,
+.career-page h3 {
   color: var(--color-black);
   font-size: 2.5rem;
   display: inline-block;
@@ -2483,7 +2513,8 @@ header .navbar-brand {
   margin-bottom: 7rem;
 }
 
-.contact-page h3::before {
+.contact-page h3::before,
+.career-page h3::before {
   content: "";
   height: 2.2rem;
   width: 1rem;
@@ -2494,19 +2525,22 @@ header .navbar-brand {
   top: -1.2rem;
 }
 
-.contact-page h3::before {
+.contact-page h3::before,
+.career-page h3::before {
   left: -1.3rem;
   height: 1.8rem;
 }
 
 @media screen and (max-width: 600px) {
-  .contact-page h3 {
+  .contact-page h3,
+  .career-page h3 {
     font-size: 1.6rem;
     margin-bottom: 4rem;
   }
 }
 
-.contact-page h5 {
+.contact-page h5,
+.career-page h5 {
   display: inline-block;
   font-weight: 800;
   position: relative;
@@ -2514,7 +2548,8 @@ header .navbar-brand {
   margin-bottom: 1rem;
 }
 
-.contact-page h5::before {
+.contact-page h5::before,
+.career-page h5::before {
   content: "";
   height: 2.2rem;
   width: 1rem;
@@ -2525,69 +2560,83 @@ header .navbar-brand {
   top: -1.2rem;
 }
 
-.contact-page h5::before {
+.contact-page h5::before,
+.career-page h5::before {
   left: -1.3rem;
   height: 1.5rem;
   top: -0.5rem;
 }
 
 @media screen and (max-width: 600px) {
-  .contact-page h5 {
+  .contact-page h5,
+  .career-page h5 {
     font-size: 1.2rem;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .contact-page .left-area {
+  .contact-page .left-area,
+  .career-page .left-area {
     padding-left: 1.8rem;
     margin-bottom: 2rem;
   }
 }
 
-.contact-page .left-area .phone ul li a {
+.contact-page .left-area .phone ul li a,
+.career-page .left-area .phone ul li a {
   color: var(--text-color);
   font-weight: 300;
   font-size: 1.1rem;
 }
 
 @media screen and (max-width: 600px) {
-  .contact-page .left-area .phone ul li a {
+  .contact-page .left-area .phone ul li a,
+  .career-page .left-area .phone ul li a {
     font-size: 1rem;
   }
 }
 
-.contact-page .left-area .address {
+.contact-page .left-area .address,
+.career-page .left-area .address {
   margin: 2rem 0rem;
 }
 
-.contact-page .left-area .address p {
+.contact-page .left-area .address p,
+.career-page .left-area .address p {
   max-width: 20rem;
   font-weight: 300;
   font-size: 1rem;
 }
 
 @media screen and (max-width: 600px) {
-  .contact-page .left-area .address p {
+  .contact-page .left-area .address p,
+  .career-page .left-area .address p {
     font-size: 0.9rem;
   }
 }
 
-.contact-page .left-area .social-media ul li a {
+.contact-page .left-area .social-media ul li a,
+.career-page .left-area .social-media ul li a {
   color: var(--color-red);
   font-size: 1.7rem;
 }
 
 @media screen and (max-width: 600px) {
-  .contact-page .left-area .social-media ul li a {
+  .contact-page .left-area .social-media ul li a,
+  .career-page .left-area .social-media ul li a {
     font-size: 1.5rem;
   }
 }
 
-.contact-page .form-area form .form-group {
+.contact-page .form-area form .form-group,
+.career-page .form-area form .form-group {
   margin-bottom: 1.5rem;
 }
 
-.contact-page .form-area form .form-group .form-control {
+.contact-page .form-area form .form-group .form-control,
+.contact-page .form-area form .form-group .form-select,
+.career-page .form-area form .form-group .form-control,
+.career-page .form-area form .form-group .form-select {
   padding: 0.9rem 1rem;
   border-radius: 0.55rem;
   border: 1px solid #bbbbbb;
@@ -2595,28 +2644,44 @@ header .navbar-brand {
   resize: none;
 }
 
-.contact-page .form-area form .form-group .form-control ::-webkit-input-placeholder {
+.contact-page .form-area form .form-group .form-control ::-webkit-input-placeholder,
+.contact-page .form-area form .form-group .form-select ::-webkit-input-placeholder,
+.career-page .form-area form .form-group .form-control ::-webkit-input-placeholder,
+.career-page .form-area form .form-group .form-select ::-webkit-input-placeholder {
   color: #bbbbbb;
 }
 
-.contact-page .form-area form .form-group .form-control :-ms-input-placeholder {
+.contact-page .form-area form .form-group .form-control :-ms-input-placeholder,
+.contact-page .form-area form .form-group .form-select :-ms-input-placeholder,
+.career-page .form-area form .form-group .form-control :-ms-input-placeholder,
+.career-page .form-area form .form-group .form-select :-ms-input-placeholder {
   color: #bbbbbb;
 }
 
-.contact-page .form-area form .form-group .form-control ::-ms-input-placeholder {
+.contact-page .form-area form .form-group .form-control ::-ms-input-placeholder,
+.contact-page .form-area form .form-group .form-select ::-ms-input-placeholder,
+.career-page .form-area form .form-group .form-control ::-ms-input-placeholder,
+.career-page .form-area form .form-group .form-select ::-ms-input-placeholder {
   color: #bbbbbb;
 }
 
-.contact-page .form-area form .form-group .form-control ::placeholder {
+.contact-page .form-area form .form-group .form-control ::placeholder,
+.contact-page .form-area form .form-group .form-select ::placeholder,
+.career-page .form-area form .form-group .form-control ::placeholder,
+.career-page .form-area form .form-group .form-select ::placeholder {
   color: #bbbbbb;
 }
 
-.contact-page .form-area form .form-group .form-control:focus {
+.contact-page .form-area form .form-group .form-control:focus,
+.contact-page .form-area form .form-group .form-select:focus,
+.career-page .form-area form .form-group .form-control:focus,
+.career-page .form-area form .form-group .form-select:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.contact-page .form-area form .btn {
+.contact-page .form-area form .btn,
+.career-page .form-area form .btn {
   border: 1px solid var(--text-color);
   border-radius: 0.55rem;
   padding: 0.5rem 1rem;
@@ -2625,13 +2690,15 @@ header .navbar-brand {
   transition: 0.3s all;
 }
 
-.contact-page .form-area form .btn:hover {
+.contact-page .form-area form .btn:hover,
+.career-page .form-area form .btn:hover {
   background-color: var(--color-red);
   color: var(--color-white);
   border: 1px solid var(--color-red);
 }
 
-.contact-page .form-area form .btn:focus {
+.contact-page .form-area form .btn:focus,
+.career-page .form-area form .btn:focus {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
